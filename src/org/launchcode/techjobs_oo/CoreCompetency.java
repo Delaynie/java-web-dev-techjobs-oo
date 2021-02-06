@@ -51,14 +51,10 @@ public class CoreCompetency {
         this.value = value;
     }
 
-    // Getter for id & nextId
+    // Getter for id
 
     public int getId() {
         return id;
-    }
-
-    public static int getNextId() {
-        return nextId;
     }
 
 }
