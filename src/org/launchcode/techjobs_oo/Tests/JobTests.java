@@ -13,6 +13,7 @@ public class JobTests {
     Job fullJob;
     Job equalJobOne;
     Job equalJobTwo;
+    Job toStringJob;
 
     @Before
     public void createJobObjects() {
@@ -23,7 +24,7 @@ public class JobTests {
         fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         equalJobOne = new Job("name", new Employer("employer"), new Location("location"), new PositionType("position type"), new CoreCompetency("core competency"));
         equalJobTwo = new Job("name", new Employer("employer"), new Location("location"), new PositionType("position type"), new CoreCompetency("core competency"));
-
+        toStringJob = new Job();
     }
 
     // just testing with an empty test
@@ -73,5 +74,11 @@ public class JobTests {
     @Test
     public void testJobsForEquality() {
         assertFalse(equalJobOne == equalJobTwo);
+    }
+
+    // Tests for toString method that will be built in the Job class
+    @Test
+    public void firstToString() {
+        assertTrue("data not available" == toStringJob.toString());
     }
 }

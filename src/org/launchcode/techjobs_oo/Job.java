@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Job {
 
-    private int id = 0;
+    private int id;
     private static int nextId = 1;
 
     private String name;
@@ -27,8 +27,22 @@ public class Job {
         this.name = name;
         this.employer = employer;
         this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
 
     }
+
+
+    // toString method
+
+    public String toString() {
+        if(this.getName().equals("")) {
+            return "data not available";
+        } else {
+            return "ID: " + this.id + "\nName: " + this.name;
+        }
+    }
+
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
