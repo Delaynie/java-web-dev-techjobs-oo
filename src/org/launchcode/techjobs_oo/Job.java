@@ -36,8 +36,8 @@ public class Job {
     // toString method
 
     public String toString() {
-        if(this.getName().equals("")) {
-            return "data not available";
+        if(this.getName() == "") {
+            return this.name = "data not available";
         } else {
             return "ID: " + this.id + "\nName: " + this.name;
         }
