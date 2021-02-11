@@ -34,12 +34,12 @@ public class Job {
 
 
     // toString method
-
+    @Override
     public String toString() {
         if(this.getName() == "") {
             return this.name = "data not available";
         } else {
-            return "ID: " + this.id + "\nName: " + this.name;
+            return "Name: " + this.name;
         }
     }
 

@@ -79,6 +79,7 @@ public class JobTests {
     // Tests for toString method that will be built in the Job class
     @Test
     public void toStringTest() {
-        assertTrue("data not available" == toStringJob.toString());
+        Object actual = toStringJob.getName();
+        assertEquals("data not available", actual.toString());
     }
 }
