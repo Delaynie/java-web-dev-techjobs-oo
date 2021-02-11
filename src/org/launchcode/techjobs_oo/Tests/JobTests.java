@@ -6,56 +6,42 @@ import org.launchcode.techjobs_oo.*;
 import static org.junit.Assert.*;
 
 public class JobTests {
+    Job testId;
     Job test_jobOne;
     Job test_jobTwo;
     Job test_jobThree;
-    Job testJobs;
-    Job fullJob;
     Job equalJobOne;
     Job equalJobTwo;
     Job toStringJob;
     Job emptyJob;
     Job partialJob;
+    Job fullJob;
 
     @Before
     public void createJobObjects() {
+        testId = new Job();
         test_jobOne = new Job();
         test_jobTwo = new Job();
         test_jobThree = new Job();
-        testJobs = new Job();
-        fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         equalJobOne = new Job("name", new Employer("employer"), new Location("location"), new PositionType("position type"), new CoreCompetency("core competency"));
         equalJobTwo = new Job("name", new Employer("employer"), new Location("location"), new PositionType("position type"), new CoreCompetency("core competency"));
         toStringJob = new Job();
         emptyJob = new Job();
-        partialJob = new Job("name", new Employer(), new Location(), new PositionType("position type"), new CoreCompetency("CoreCompetency"));
-    }
-
-    // just testing with an empty test
-    @Test
-    public void emptyTest() {
-        assertEquals(5, 5, .001);
+        partialJob = new Job("name", new Employer(""), new Location(""), new PositionType("position type"), new CoreCompetency("CoreCompetency"));
+        fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
 
     // making sure the job Id constructor sets an Id number of 1 or greater
     @Test
     public void testJobIdConstructor() {
-        assertTrue(testJobs.getId() >= 1);
-        //System.out.println(testJobs.getId());
+        assertTrue(testId.getId() > 0);
     }
 
     // making sure the job constructor does not set the same number for two different job objects
     @Test
-    public void testJobIdConstructor2() {
+    public void testJobIdConstructorTwo() {
         assertTrue(test_jobOne.getId() != test_jobTwo.getId());
     }
-
-    // another test to make sure the constructor doesn't give the same number to different job objects
-    @Test
-    public void testsDifferentIDNumbers() {
-        assertNotSame(test_jobOne.getId(), test_jobTwo.getId());
-    }
-
 
     // Testing the full constructor
 
@@ -74,7 +60,22 @@ public class JobTests {
         assertTrue(fullJob.getEmployer() instanceof Employer);
     }
 
-    // test jobs for equality
+    @Test
+    public void testJobConstructorSetsCorrectLocationField() {
+        assertTrue(fullJob.getLocation() instanceof Location);
+    }
+
+    @Test
+    public void testJobConstructorSetsCorrectPositionTypeField() {
+        assertTrue(fullJob.getPositionType() instanceof PositionType);
+    }
+
+    @Test
+    public void testJobConstructorSetsCorrectCoreCompetencyField() {
+        assertTrue(fullJob.getCoreCompetency() instanceof CoreCompetency);
+    }
+
+    // test jobs for equality (only difference is the ID field which makes them unequal)
     @Test
     public void testJobsForEquality() {
         assertFalse(equalJobOne == equalJobTwo);
@@ -83,24 +84,23 @@ public class JobTests {
     // Tests for toString method that will be built in the Job class
 
     @Test
-    public void toStringBlankLineTest() {
-        assertTrue("\n" + "\n" == toStringJob.toString());
+    public void toStringBlankLineBeforeAndAfterJobInfoTest() {
+
     }
 
-    @Test
-    public void toStringTest() {
-        assertEquals("data not available", emptyJob.toString());
-    }
-/*
     @Test
     public void toStringTestAllFieldsCompleted() {
         assertFalse("data not available" == fullJob.toString());
-        System.out.println(fullJob); // just making sure it prints in the correct format
     }
+
 
     @Test
     public void toStringTestPartiallyCompletedFields() {
-        assertFalse("" == partialJob.toString());
-        System.out.println(partialJob);
-    }*/
+        assertFalse(null == partialJob.toString());
+    }
+
+    @Test
+    public void toStringTestEmptyFieldsReturnsOops() {
+        assertTrue("OOPS! This job does not seem to exist" == emptyJob.toString());
+    }
 }

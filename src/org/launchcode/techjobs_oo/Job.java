@@ -37,35 +37,35 @@ public class Job {
     @Override
     public String toString() {
 
-    if (this.name == null) {
-        return this.name = "data not available";
-    } else if (this.employer == null) {
-
-        return this.employer = "data not available";
-
-    } else {
-
+        if (this.name == null || this.name == "" &&
+                this.employer.getValue() == null || this.employer.getValue() == "" &&
+                this.location.getValue() == null || this.location.getValue() == "" &&
+                this.positionType.getValue() == null || this.positionType.toString() == "" &&
+                this.coreCompetency.getValue() == null || this.coreCompetency.toString() == "") {
+            return "OOPS! This job does not seem to exist";
+        } else {
+            if (this.name == null || this.name == "") {
+                this.name = "data not available";
+            }
+            if (this.employer.getValue() == null || this.employer.getValue() == "") {
+                this.employer.setValue("data not available");
+            }
+            if (this.location.getValue() == null || this.location.getValue() == "") {
+                this.location.setValue("data not available");
+            }
+            if (this.positionType.getValue() == null || this.positionType.toString() == "") {
+                this.positionType.setValue("data not available");
+            }
+            if (this.coreCompetency.getValue() == null || this.coreCompetency.toString() == "") {
+                this.coreCompetency.setValue("data not available");
+            }
+        }
         return "\nID: " + this.id +
                 "\nName: " + this.name +
                 "\nEmployer: " + this.employer +
                 "\nLocation: " + this.location +
                 "\nPosition Type: " + this.positionType +
                 "\nCore Competency: " + this.coreCompetency + "\n";
-    }
-       /* if(this.getName() == null) {
-            this.name = "data not available";
-        } else if (this.getEmployer() == null) {
-            this.employer = "data not available";
-        } else if (this.getLocation() == null) {
-            this.location = "data not available";
-        }
-            return "ID: " + this.id +
-                    "\nName: " + this.name +
-                    "\nEmployer: " + this.employer +
-                    "\nLocation: " + this.location +
-                    "\nPosition Type: " + this.positionType +
-                    "\nCore Competency: " + this.coreCompetency;*/
-
     }
 
 
