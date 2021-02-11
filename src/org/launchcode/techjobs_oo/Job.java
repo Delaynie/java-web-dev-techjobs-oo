@@ -36,11 +36,36 @@ public class Job {
     // toString method
     @Override
     public String toString() {
-        if(this.getName() == "") {
-            return this.name = "data not available";
-        } else {
-            return "Name: " + this.name;
+
+    if (this.name == null) {
+        return this.name = "data not available";
+    } else if (this.employer == null) {
+
+        return this.employer = "data not available";
+
+    } else {
+
+        return "\nID: " + this.id +
+                "\nName: " + this.name +
+                "\nEmployer: " + this.employer +
+                "\nLocation: " + this.location +
+                "\nPosition Type: " + this.positionType +
+                "\nCore Competency: " + this.coreCompetency + "\n";
+    }
+       /* if(this.getName() == null) {
+            this.name = "data not available";
+        } else if (this.getEmployer() == null) {
+            this.employer = "data not available";
+        } else if (this.getLocation() == null) {
+            this.location = "data not available";
         }
+            return "ID: " + this.id +
+                    "\nName: " + this.name +
+                    "\nEmployer: " + this.employer +
+                    "\nLocation: " + this.location +
+                    "\nPosition Type: " + this.positionType +
+                    "\nCore Competency: " + this.coreCompetency;*/
+
     }
 
 

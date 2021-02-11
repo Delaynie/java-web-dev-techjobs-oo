@@ -14,6 +14,8 @@ public class JobTests {
     Job equalJobOne;
     Job equalJobTwo;
     Job toStringJob;
+    Job emptyJob;
+    Job partialJob;
 
     @Before
     public void createJobObjects() {
@@ -25,6 +27,8 @@ public class JobTests {
         equalJobOne = new Job("name", new Employer("employer"), new Location("location"), new PositionType("position type"), new CoreCompetency("core competency"));
         equalJobTwo = new Job("name", new Employer("employer"), new Location("location"), new PositionType("position type"), new CoreCompetency("core competency"));
         toStringJob = new Job();
+        emptyJob = new Job();
+        partialJob = new Job("name", new Employer(), new Location(), new PositionType("position type"), new CoreCompetency("CoreCompetency"));
     }
 
     // just testing with an empty test
@@ -77,9 +81,26 @@ public class JobTests {
     }
 
     // Tests for toString method that will be built in the Job class
+
+    @Test
+    public void toStringBlankLineTest() {
+        assertTrue("\n" + "\n" == toStringJob.toString());
+    }
+
     @Test
     public void toStringTest() {
-        Object actual = toStringJob.getName();
-        assertEquals("data not available", actual.toString());
+        assertEquals("data not available", emptyJob.toString());
     }
+/*
+    @Test
+    public void toStringTestAllFieldsCompleted() {
+        assertFalse("data not available" == fullJob.toString());
+        System.out.println(fullJob); // just making sure it prints in the correct format
+    }
+
+    @Test
+    public void toStringTestPartiallyCompletedFields() {
+        assertFalse("" == partialJob.toString());
+        System.out.println(partialJob);
+    }*/
 }
