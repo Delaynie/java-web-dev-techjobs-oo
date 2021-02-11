@@ -84,8 +84,18 @@ public class JobTests {
     // Tests for toString method that will be built in the Job class
 
     @Test
-    public void toStringBlankLineBeforeAndAfterJobInfoTest() {
+    public void toStringContainsBlankLineBefore() {
+        assertEquals("\n", fullJob.toString().substring(0,1));
+    }
 
+    @Test
+    public void toStringContainsBlankLineAfter() {
+        assertEquals("\n", fullJob.toString().length()-1);
+    }
+
+    @Test
+    public void toStringContainsBlankLineAfterSubstring() {
+        assertEquals("\n", fullJob.toString().substring(120,121));
     }
 
     @Test
@@ -96,7 +106,7 @@ public class JobTests {
 
     @Test
     public void toStringTestPartiallyCompletedFields() {
-        assertFalse(null == partialJob.toString());
+        assertFalse("" == partialJob.toString());
     }
 
     @Test

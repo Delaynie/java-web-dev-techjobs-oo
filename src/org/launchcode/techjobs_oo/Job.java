@@ -38,25 +38,25 @@ public class Job {
     public String toString() {
 
         if (this.name == null || this.name == "" &&
-                this.employer.getValue() == null || this.employer.getValue() == "" &&
-                this.location.getValue() == null || this.location.getValue() == "" &&
-                this.positionType.getValue() == null || this.positionType.toString() == "" &&
-                this.coreCompetency.getValue() == null || this.coreCompetency.toString() == "") {
+                this.employer == null || this.employer.getValue() == "" &&
+                this.location == null || this.location.getValue() == "" &&
+                this.positionType == null || this.positionType.toString() == "" &&
+                this.coreCompetency == null || this.coreCompetency.toString() == "") {
             return "OOPS! This job does not seem to exist";
         } else {
-            if (this.name == null || this.name == "") {
+            if (this.name == "") {
                 this.name = "data not available";
             }
-            if (this.employer.getValue() == null || this.employer.getValue() == "") {
+            if (this.employer.getValue() == "") {
                 this.employer.setValue("data not available");
             }
-            if (this.location.getValue() == null || this.location.getValue() == "") {
+            if (this.location.getValue() == "") {
                 this.location.setValue("data not available");
             }
-            if (this.positionType.getValue() == null || this.positionType.toString() == "") {
+            if (this.positionType.toString() == "") {
                 this.positionType.setValue("data not available");
             }
-            if (this.coreCompetency.getValue() == null || this.coreCompetency.toString() == "") {
+            if (this.coreCompetency.toString() == "") {
                 this.coreCompetency.setValue("data not available");
             }
         }
