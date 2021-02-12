@@ -90,7 +90,8 @@ public class JobTests {
 
     @Test
     public void toStringContainsBlankLineAfter() {
-        assertEquals("\n", fullJob.toString().length()-1);
+        String lastCharacter = fullJob.toString().substring(fullJob.toString().length()-1);
+        assertEquals("\n", lastCharacter);
     }
 
     @Test
